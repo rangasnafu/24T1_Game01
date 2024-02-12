@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 1353352561}
   - component: {fileID: 1353352560}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Left Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 2017522877}
   - component: {fileID: 2017522876}
   m_Layer: 0
-  m_Name: Capsule (1)
+  m_Name: Right Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
