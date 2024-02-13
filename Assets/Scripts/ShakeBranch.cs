@@ -37,6 +37,6 @@ public class ShakeBranch : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             interactPrompt.SetActive(false);
-        }
+        } 
     }
 }
