@@ -19,6 +19,7 @@ public class ShakeBranch : MonoBehaviour
             acornToDestroy.SetActive(false);
             canInteract = false;
             interactPrompt.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 
@@ -29,5 +30,13 @@ public class ShakeBranch : MonoBehaviour
             canInteract = true;
             interactPrompt.SetActive(true);
         }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            interactPrompt.SetActive(false);
+        } 
     }
 }
