@@ -19,6 +19,7 @@ public class ShakeBranch : MonoBehaviour
             acornToDestroy.SetActive(false);
             canInteract = false;
             interactPrompt.SetActive(false);
+            Destroy(this.gameObject);
         }
     }
 
