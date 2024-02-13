@@ -30,4 +30,12 @@ public class ShakeBranch : MonoBehaviour
             interactPrompt.SetActive(true);
         }
     }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            interactPrompt.SetActive(false);
+        }
+    }
 }
