@@ -237,6 +237,8 @@ public class Dialogue : MonoBehaviour
         dialogue13.SetActive(false);
         button13.SetActive(false);
 
+        boyImage.SetActive(false);
+
         dialogueUI.SetActive(false);
     }
 }
