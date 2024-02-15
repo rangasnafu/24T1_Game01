@@ -26,7 +26,8 @@ public class PlayerCamera : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
-        else
+        
+        if (!dialogueUI.activeSelf)
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
