@@ -93,6 +93,7 @@ public class Dialogue : MonoBehaviour
         if (!dialogueUI.activeSelf)
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
@@ -233,6 +234,9 @@ public class Dialogue : MonoBehaviour
 
     public void Next13()
     {
+        dialogue13.SetActive(false);
+        button13.SetActive(false);
+
         dialogueUI.SetActive(false);
     }
 }

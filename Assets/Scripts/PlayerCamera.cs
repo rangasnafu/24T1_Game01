@@ -22,15 +22,15 @@ public class PlayerCamera : MonoBehaviour
 
     private void Start()
     {
-        if (dialogueUI.activeSelf)
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
+        //if (dialogueUI.activeSelf)
+        //{
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
         
-        if (!dialogueUI.activeSelf)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+        //if (!dialogueUI.activeSelf)
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
         //Cursor.lockState = CursorLockMode.Locked;
         //if (youWinUI.activeSelf)
         //{
@@ -54,8 +54,15 @@ public class PlayerCamera : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+            Cursor.lockState = CursorLockMode.Locked;
         }
-        
+
+        if (dialogueUI.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         //float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         //float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
