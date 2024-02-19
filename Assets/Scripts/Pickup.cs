@@ -17,6 +17,8 @@ public class Pickup : MonoBehaviour
     public GameObject promptUI;
     public GameObject dropUI;
 
+    public GameObject dialogueUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canPickup == true)
+        if (canPickup == true && !dialogueUI.activeSelf)
         {
             if (Input.GetKeyDown("e"))
             {
@@ -51,16 +53,26 @@ public class Pickup : MonoBehaviour
             dropUI.SetActive(false);
         }
 
+        if (Input.GetKeyDown("t") && hasItem == true)
+        {
+            ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
+            ObjectIWantToPickup.transform.parent = null;
+            ObjectIWantToPickup.GetComponent<Rigidbody>().AddForce(myHands.transform.forward * throwForce);
+            hasItem = false;
+
+            dropUI.SetActive(false);
+        }
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (other.gameObject.tag == "Acorn")
+        if (collision.gameObject.tag == "Acorn" && !dialogueUI.activeSelf)
         {
             if (hasItem == false)
             {
                 canPickup = true;
-                ObjectIWantToPickup = other.gameObject;
+                ObjectIWantToPickup = collision.gameObject;
             }
 
             promptUI.SetActive(true);
