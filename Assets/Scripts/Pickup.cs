@@ -17,6 +17,8 @@ public class Pickup : MonoBehaviour
     public GameObject promptUI;
     public GameObject dropUI;
 
+    public GameObject dialogueUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,7 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canPickup == true)
+        if (canPickup == true && !dialogueUI.activeSelf)
         {
             if (Input.GetKeyDown("e"))
             {
@@ -65,7 +67,7 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Acorn")
+        if (collision.gameObject.tag == "Acorn" && !dialogueUI.activeSelf)
         {
             if (hasItem == false)
             {

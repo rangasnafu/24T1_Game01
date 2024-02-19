@@ -1528,7 +1528,7 @@ GameObject:
   - component: {fileID: 290287393}
   - component: {fileID: 290287392}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9509,6 +9509,7 @@ MonoBehaviour:
   distance: 0
   promptUI: {fileID: 229484041}
   dropUI: {fileID: 2024262978}
+  dialogueUI: {fileID: 290287391}
 --- !u!65 &1624735812
 BoxCollider:
   m_ObjectHideFlags: 0

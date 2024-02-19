@@ -73,6 +73,7 @@ public class Dialogue : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             squirrelTalk = false;
+            promptUI.SetActive(false);
         }
     }
 
