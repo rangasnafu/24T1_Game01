@@ -50,7 +50,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && squirrelTalk)
+        if (Input.GetKeyDown(KeyCode.T) && squirrelTalk)
         {
             DialogueText();
             promptUI.SetActive(false);
@@ -58,9 +58,9 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (other.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             squirrelTalk = true;
             promptUI.SetActive(true);
@@ -73,6 +73,7 @@ public class Dialogue : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             squirrelTalk = false;
+            promptUI.SetActive(false);
         }
     }
 
@@ -130,7 +131,7 @@ public class Dialogue : MonoBehaviour
         button4.SetActive(true);
 
         squirrelImage.SetActive(false);
-        boyImage.SetActive(true);
+        boyImage.SetActive(true); 
     }
 
     public void Next4()
