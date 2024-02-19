@@ -18,9 +18,20 @@ public class PlayerCamera : MonoBehaviour
 
     //public GameObject youWinUI;
 
+    public GameObject dialogueUI;
+
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //if (dialogueUI.activeSelf)
+        //{
+        //    Cursor.lockState = CursorLockMode.None;
+        //}
+        
+        //if (!dialogueUI.activeSelf)
+        //{
+        //    Cursor.lockState = CursorLockMode.Locked;
+        //}
+        //Cursor.lockState = CursorLockMode.Locked;
         //if (youWinUI.activeSelf)
         //{
         //    Cursor.lockState = CursorLockMode.None;
@@ -33,14 +44,33 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (!dialogueUI.activeSelf)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        playerBody.Rotate(Vector3.up * mouseX);
+            playerBody.Rotate(Vector3.up * mouseX);
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        if (dialogueUI.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        //float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        //float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        //playerBody.Rotate(Vector3.up * mouseX);
+
+        //xRotation -= mouseY;
+        //xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        //transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
     private IEnumerator AdjustCameraPosition(Vector3 targetPosition)
