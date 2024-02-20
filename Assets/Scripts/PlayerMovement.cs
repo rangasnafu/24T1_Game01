@@ -19,8 +19,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isGrounded;
     private Vector3 velocity;
 
-    public GameObject dialogueUI;
-
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -28,72 +26,43 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!dialogueUI.activeSelf)
+        isGrounded = IsGrounded();
+
+        float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
+
+        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+
+        velocity.y += Physics.gravity.y * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            isGrounded = IsGrounded();
-
-            float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-            Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
-
-            characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
-
-            velocity.y += Physics.gravity.y * Time.deltaTime;
-
-            if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                isSprinting = true;
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                isSprinting = false;
-            }
-
-            if (Input.GetButtonDown("Jump") && isGrounded)
-            {
-                velocity.y = jumpForce;
-            }
-
-            else if (!Input.GetKey(KeyCode.Space) && !isGrounded)
-            {
-                velocity.y = Mathf.MoveTowards(velocity.y, Physics.gravity.y, Time.deltaTime);
-            }
-
-            characterController.Move(velocity * Time.deltaTime);
+            isSprinting = true;
         }
-        
-        //isGrounded = IsGrounded();
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprinting = false;
+        }
 
-        //float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        //float verticalInput = Input.GetAxis("Vertical");
-        //Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = jumpForce;
+        }
 
-        //characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
-
-        //velocity.y += Physics.gravity.y * Time.deltaTime;
-
-        //if (Input.GetKeyDown(KeyCode.LeftShift))
-        //{
-        //    isSprinting = true;
-        //}
-        //if (Input.GetKeyUp(KeyCode.LeftShift))
-        //{
-        //    isSprinting = false;
-        //}
-
-        //if (Input.GetButtonDown("Jump") && isGrounded)
+        // Continuous upward movement when spacebar is held
+        //if (Input.GetKey(KeyCode.Space))
         //{
         //    velocity.y = jumpForce;
         //}
+        // Gradual decrease in upward velocity when spacebar is released
+        else if (!Input.GetKey(KeyCode.Space) && !isGrounded)
+        {
+            velocity.y = Mathf.MoveTowards(velocity.y, Physics.gravity.y, Time.deltaTime);
+        }
 
-        //else if (!Input.GetKey(KeyCode.Space) && !isGrounded)
-        //{
-        //    velocity.y = Mathf.MoveTowards(velocity.y, Physics.gravity.y, Time.deltaTime);
-        //}
-
-        //characterController.Move(velocity * Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
     }
 
     private bool IsGrounded()
