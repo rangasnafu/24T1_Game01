@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
 
     public GameObject dialogueUI;
+    public GameObject mainCamera;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!dialogueUI.activeSelf)
+        if (!dialogueUI.activeSelf && mainCamera.activeSelf)
         {
             isGrounded = IsGrounded();
 
