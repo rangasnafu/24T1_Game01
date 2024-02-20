@@ -14,11 +14,6 @@ public class Pickup : MonoBehaviour
     Vector3 objectPos;
     public float distance;
 
-    public GameObject promptUI;
-    public GameObject dropUI;
-
-    public GameObject dialogueUI;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +24,7 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canPickup == true && !dialogueUI.activeSelf)
+        if (canPickup == true)
         {
             if (Input.GetKeyDown("e"))
             {
@@ -37,9 +32,6 @@ public class Pickup : MonoBehaviour
                 ObjectIWantToPickup.transform.position = myHands.transform.position;
                 ObjectIWantToPickup.transform.parent = myHands.transform;
                 hasItem = true;
-
-                //promptUI.SetActive(false);
-                dropUI.SetActive(true);
             }
 
         }
@@ -49,33 +41,20 @@ public class Pickup : MonoBehaviour
             ObjectIWantToPickup.transform.parent = null;
             ObjectIWantToPickup.GetComponent<Rigidbody>().AddForce(myHands.transform.forward * throwForce);
             hasItem = false;
-
-            dropUI.SetActive(false);
-        }
-
-        if (Input.GetKeyDown("t") && hasItem == true)
-        {
-            ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
-            ObjectIWantToPickup.transform.parent = null;
-            ObjectIWantToPickup.GetComponent<Rigidbody>().AddForce(myHands.transform.forward * throwForce);
-            hasItem = false;
-
-            dropUI.SetActive(false);
         }
 
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Acorn" && !dialogueUI.activeSelf)
+        if (other.gameObject.tag == "Acorn")
         {
             if (hasItem == false)
             {
                 canPickup = true;
-                ObjectIWantToPickup = collision.gameObject;
+                ObjectIWantToPickup = other.gameObject;
             }
 
-            promptUI.SetActive(true);
         }
 
     }
@@ -83,7 +62,5 @@ public class Pickup : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         canPickup = false;
-        promptUI.SetActive(false);
-        //dropUI.SetActive(false);
     }
 }
