@@ -77,7 +77,15 @@ public class Pickup : MonoBehaviour
 
             promptUI.SetActive(true);
         }
-
+        if (collision.gameObject.tag == "Slingshot" && !dialogueUI.activeSelf)
+        {
+            if (hasItem == true)
+            {
+                collision.gameObject.GetComponent<Slingshot>().LoadAcorn();
+                hasItem = false;
+                Destroy(ObjectIWantToPickup);
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
