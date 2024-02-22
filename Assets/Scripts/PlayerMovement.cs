@@ -107,4 +107,12 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position - new Vector3(0, 1f, 0), transform.position - new Vector3(0, 1f, 0) + Vector3.down * 0.6f);
     }
+    public void DisablePlayer()
+    {
+        gameObject.SetActive(false);
+    }
+    public void EnablePlayer()
+    {
+        gameObject.SetActive(true);
+    }
 }
