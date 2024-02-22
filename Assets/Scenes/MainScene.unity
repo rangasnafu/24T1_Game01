@@ -11795,7 +11795,7 @@ MonoBehaviour:
   canPickup: 0
   ObjectIWantToPickup: {fileID: 0}
   hasItem: 0
-  throwForce: 100
+  throwForce: 200
   distance: 0
   promptUI: {fileID: 229484041}
   dropUI: {fileID: 2024262978}
