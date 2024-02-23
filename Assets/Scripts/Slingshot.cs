@@ -39,6 +39,13 @@ public class Slingshot : MonoBehaviour
         cameraRotationY += verticalInput * Time.deltaTime * movementSpeed;
         pivot.transform.localRotation = Quaternion.Euler(0, cameraRotationX, 0);
         slingshotCamera.transform.localRotation = Quaternion.Euler(cameraRotationY, 0, 0);
+
+        if (holdingAcorn && Input.GetKeyDown(KeyCode.Escape))
+        {
+            holdingAcorn = false;
+            player.EnablePlayer();
+            slingshotCamera.SetActive(false);
+        }
         
     }
     private void Start()

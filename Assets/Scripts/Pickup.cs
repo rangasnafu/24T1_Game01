@@ -62,7 +62,6 @@ public class Pickup : MonoBehaviour
 
             dropUI.SetActive(false);
         }
-
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -92,6 +91,6 @@ public class Pickup : MonoBehaviour
     {
         canPickup = false;
         promptUI.SetActive(false);
-        //dropUI.SetActive(false);
+        dropUI.SetActive(false);
     }
 }
