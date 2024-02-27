@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Acorn
   - ShakeBranch
+  - Slingshot
+  - Enemy
   layers:
   - Default
   - TransparentFX
