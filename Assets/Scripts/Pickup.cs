@@ -111,7 +111,7 @@ public class Pickup : MonoBehaviour
             dropUI.SetActive(false);
         }
         
-        //canPickup = false;
+        canPickup = false;
         promptUI.SetActive(false);
         //dropUI.SetActive(false);
     }
