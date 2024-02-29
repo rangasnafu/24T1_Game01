@@ -20,6 +20,7 @@ public class EnemyFollow : MonoBehaviour
         if (wantToFollow)
         {
             transform.position = Vector3.MoveTowards(this.transform.position, targetObj.position, 5 * Time.deltaTime);
+            //transform.LookAt(targetObj);
         }
     }
 
@@ -36,5 +37,10 @@ public class EnemyFollow : MonoBehaviour
         {
             wantToFollow = false;
         }
+    }
+
+    public void GnomeDeath()
+    {
+        Destroy(this.gameObject);
     }
 }
