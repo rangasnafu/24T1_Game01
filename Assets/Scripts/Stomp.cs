@@ -30,5 +30,10 @@ public class Stomp : MonoBehaviour
             gameOverUI.SetActive(true);
             Time.timeScale = 0f;
         }
+
+        if (collision.gameObject.tag == "Acorn")
+        {
+            Destroy(transform.parent.gameObject);
+        }
     }
 }
