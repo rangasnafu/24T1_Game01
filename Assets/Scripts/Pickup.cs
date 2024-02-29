@@ -43,7 +43,7 @@ public class Pickup : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown("f") && hasItem == true)
+        if (Input.GetKeyDown("f") && hasItem == true && dialogueUI.activeSelf)
         {
             ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
             ObjectIWantToPickup.transform.parent = null;
@@ -53,7 +53,17 @@ public class Pickup : MonoBehaviour
             dropUI.SetActive(false);
         }
 
-        if (Input.GetKeyDown("t") && hasItem == true)
+        //if (Input.GetKeyDown("t") && hasItem == true)
+        //{
+        //    ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
+        //    ObjectIWantToPickup.transform.parent = null;
+        //    ObjectIWantToPickup.GetComponent<Rigidbody>().AddForce(myHands.transform.forward * throwForce);
+        //    hasItem = false;
+        //
+        //    dropUI.SetActive(false);
+        //}
+
+        if (Input.GetMouseButtonDown(0) && hasItem == true)
         {
             ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
             ObjectIWantToPickup.transform.parent = null;
@@ -89,8 +99,15 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        canPickup = false;
+        if (other.gameObject.tag == "Player")
+        {
+            canPickup = false;
+            //promptUI.SetActive(false);
+            dropUI.SetActive(false);
+        }
+        
+        //canPickup = false;
         promptUI.SetActive(false);
-        dropUI.SetActive(false);
+        //dropUI.SetActive(false);
     }
 }

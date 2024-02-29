@@ -7,6 +7,7 @@ public class Dialogue : MonoBehaviour
 {
     public GameObject dialogueUI;
     public GameObject promptUI;
+    public GameObject exclamationUI;
 
     public bool squirrelTalk;
 
@@ -50,11 +51,12 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T) && squirrelTalk)
+        if (Input.GetKeyDown(KeyCode.F) && squirrelTalk)
         {
             DialogueText();
             promptUI.SetActive(false);
             //Time.timeScale = 0f;
+            exclamationUI.SetActive(false);
         }
     }
 
