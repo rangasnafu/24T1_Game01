@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public static Pickup instance;
     public GameObject myHands;
 
-    public bool canPickup;
-    public GameObject ObjectIWantToPickup;
-    public bool hasItem;
+    public PickupItem heldItem;
+    public PickupItem itemIWantToPickUp;
+    public Interactable interactItem;
+    public bool hasItem => heldItem != null;
 
-    public float throwForce = 600;
+    private float throwForce = 6;
     Vector3 objectPos;
     public float distance;
 
@@ -22,76 +24,91 @@ public class Pickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canPickup = false;
-        hasItem = false;
+        instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canPickup == true && !dialogueUI.activeSelf)
+        if (Input.GetKeyDown("e"))
         {
-            if (Input.GetKeyDown("e"))
+            if (itemIWantToPickUp != null)
             {
-                ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = true;
-                ObjectIWantToPickup.transform.position = myHands.transform.position;
-                ObjectIWantToPickup.transform.parent = myHands.transform;
-                hasItem = true;
-
-                //promptUI.SetActive(false);
-                dropUI.SetActive(true);
+                itemIWantToPickUp.PickUp();
             }
-
-        }
-        if (Input.GetKeyDown("f") && hasItem == true)
-        {
-            ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
-            ObjectIWantToPickup.transform.parent = null;
-            ObjectIWantToPickup.GetComponent<Rigidbody>().AddForce(myHands.transform.forward * throwForce);
-            hasItem = false;
+            else if(interactItem != null)
+            {
+                interactItem.Activate();
+			}
 
             dropUI.SetActive(false);
         }
 
-        if (Input.GetKeyDown("t") && hasItem == true)
+        if (Input.GetKeyDown("f"))
         {
-            ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
-            ObjectIWantToPickup.transform.parent = null;
-            ObjectIWantToPickup.GetComponent<Rigidbody>().AddForce(myHands.transform.forward * throwForce);
-            hasItem = false;
-
-            dropUI.SetActive(false);
+            if (hasItem)
+            {
+                heldItem.Drop(transform.forward * throwForce);
+                heldItem = null;
+				dropUI.SetActive(false);
+			}
         }
-
     }
+    public void PickupItem(PickupItem item)
+    {
+        heldItem = item;
+		item.transform.parent = myHands.transform;
+		item.transform.localPosition = Vector3.zero;
+    }
+
+    public PickupItem DropItem()
+    {
+        PickupItem item = heldItem;
+		heldItem = null;
+        return item;
+	}
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Acorn" && !dialogueUI.activeSelf)
+        if (collision.gameObject.GetComponent<PickupItem>()!=null)
         {
-            if (hasItem == false)
+            if(!collision.gameObject.GetComponent<PickupItem>().canPickup)
             {
-                canPickup = true;
-                ObjectIWantToPickup = collision.gameObject;
+                return;
             }
-
+            itemIWantToPickUp = collision.gameObject.GetComponent<PickupItem>();
             promptUI.SetActive(true);
         }
-        if (collision.gameObject.tag == "Slingshot" && !dialogueUI.activeSelf)
+        if(collision.gameObject.GetComponent<Interactable>() != null)
         {
-            if (hasItem == true)
-            {
-                collision.gameObject.GetComponent<Slingshot>().LoadAcorn();
-                hasItem = false;
-                Destroy(ObjectIWantToPickup);
-            }
-        }
+            interactItem = collision.gameObject.GetComponent<Interactable>();
+			interactItem.Enter();
+			promptUI.SetActive(true);
+		}
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canPickup = false;
-        promptUI.SetActive(false);
-        //dropUI.SetActive(false);
+		if (other.gameObject.GetComponent<PickupItem>() != null)
+		{
+			itemIWantToPickUp = null;
+			promptUI.SetActive(false);
+		}
+		if (other.gameObject.GetComponent<Interactable>() != null)
+		{
+			interactItem.Exit();
+			interactItem = null;
+			promptUI.SetActive(false);
+		}
     }
+
+	public void Activate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+		gameObject.SetActive(false);
+	}
 }
