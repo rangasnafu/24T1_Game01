@@ -72,6 +72,11 @@ public class Pickup : MonoBehaviour
 
             dropUI.SetActive(false);
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            dropUI.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
