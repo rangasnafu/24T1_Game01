@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShakeBranch : MonoBehaviour
 {
+    public GameObject mainCamera;
+    public GameObject treeCamera;
+    
     public GameObject acornToDrop1;
     public GameObject acornToDestroy1;
     public GameObject acornToDrop2;
@@ -41,7 +44,11 @@ public class ShakeBranch : MonoBehaviour
 
             canInteract = false;
             interactPrompt.SetActive(false);
-            Destroy(this.gameObject);
+            
+
+            mainCamera.SetActive(false);
+            treeCamera.SetActive(true);
+            Invoke(nameof(DeactivateTreeCamera), 3f);
         }
     }
 
@@ -60,5 +67,13 @@ public class ShakeBranch : MonoBehaviour
         {
             interactPrompt.SetActive(false);
         } 
+    }
+
+    private void DeactivateTreeCamera()
+    {
+        mainCamera.SetActive(true);
+        treeCamera.SetActive(false);
+
+        Destroy(this.gameObject);
     }
 }

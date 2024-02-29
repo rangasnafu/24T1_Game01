@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
 
     public GameObject dialogueUI;
+    public GameObject mainCamera;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!dialogueUI.activeSelf)
+        if (!dialogueUI.activeSelf && mainCamera.activeSelf)
         {
             isGrounded = IsGrounded();
 
@@ -105,5 +106,13 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position - new Vector3(0, 1f, 0), transform.position - new Vector3(0, 1f, 0) + Vector3.down * 0.6f);
+    }
+    public void DisablePlayer()
+    {
+        gameObject.SetActive(false);
+    }
+    public void EnablePlayer()
+    {
+        gameObject.SetActive(true);
     }
 }
