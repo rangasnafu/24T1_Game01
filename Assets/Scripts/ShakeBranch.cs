@@ -66,6 +66,7 @@ public class ShakeBranch : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             interactPrompt.SetActive(false);
+            canInteract = false;
         } 
     }
 
