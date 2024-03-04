@@ -110,5 +110,5 @@ public class Pickup : MonoBehaviour
     public void Deactivate()
     {
 		gameObject.SetActive(false);
-	}
+	} 
 }

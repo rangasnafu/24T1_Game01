@@ -6407,74 +6407,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 309022645}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &152848396
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -52.57191
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.0820315
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -293
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.22528733
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9742924
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2335021341193534584, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -26.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 3110994643676538562, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19,
-        type: 3}
-      propertyPath: m_Name
-      value: Slingshot
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5de72a2e3aa5c2f43ac17c7c973f7d19, type: 3}
 --- !u!1001 &153537594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20952,10 +20884,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHands: {fileID: 1775991760}
-  canPickup: 0
-  ObjectIWantToPickup: {fileID: 0}
-  hasItem: 0
-  throwForce: 200
+  heldItem: {fileID: 0}
+  itemIWantToPickUp: {fileID: 0}
+  interactItem: {fileID: 0}
   distance: 0
   promptUI: {fileID: 198209446}
   dropUI: {fileID: 460510040}
@@ -21435,6 +21366,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 480543612}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &481290350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 481290351}
+  m_Layer: 0
+  m_Name: AcornSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &481290351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481290350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.43, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1959807373}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &484768416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56811,7 +56773,7 @@ GameObject:
   - component: {fileID: 1448979543}
   - component: {fileID: 1448979544}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Slingshot Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59190,7 +59152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1508647542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76251,6 +76213,7 @@ GameObject:
   - component: {fileID: 1959807376}
   - component: {fileID: 1959807375}
   - component: {fileID: 1959807374}
+  - component: {fileID: 1959807377}
   m_Layer: 0
   m_Name: Slingshot (1)
   m_TagString: Slingshot
@@ -76273,6 +76236,7 @@ Transform:
   m_Children:
   - {fileID: 1252916264}
   - {fileID: 1897282052}
+  - {fileID: 481290351}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1959807374
@@ -76329,13 +76293,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cbbc7cbf6f94da798ba5aa8814f448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdingAcorn: 0
+  interacting: 0
+  firePower: 15
   slingshotCamera: {fileID: 1448979542}
   player: {fileID: 0}
   movementSpeed: 100
   cameraRotationX: 0
   cameraRotationY: 0
+  loadedItem: {fileID: 0}
   pivot: {fileID: 1897282051}
+  loadPoint: {fileID: 0}
+--- !u!114 &1959807377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959807372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70c5bb44351ef04e99825ca0bb5d8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acornPrefab: {fileID: 9108294154053780365, guid: 7d35aae5c82877c42a1dbbaaf5f3b125,
+    type: 3}
+  acornSpawnPoint: {fileID: 481290351}
+  shootInterval: 15
+  slingshotCamera: {fileID: 1448979542}
 --- !u!1001 &1961894948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85119,7 +85103,6 @@ SceneRoots:
   - {fileID: 129314709}
   - {fileID: 108282251}
   - {fileID: 1462221141}
-  - {fileID: 152848396}
   - {fileID: 383330653}
   - {fileID: 1623220100}
   - {fileID: 708049151}
