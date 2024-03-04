@@ -51,7 +51,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && squirrelTalk)
+        if (Input.GetKeyDown(KeyCode.Q) && squirrelTalk)
         {
             DialogueText();
             promptUI.SetActive(false);
