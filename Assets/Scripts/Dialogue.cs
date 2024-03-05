@@ -87,6 +87,7 @@ public class Dialogue : MonoBehaviour
         button1.SetActive(true);
 
         squirrelImage.SetActive(true);
+        squirrelTalk = false;
 
         if (dialogueUI.activeSelf)
         {
@@ -243,5 +244,6 @@ public class Dialogue : MonoBehaviour
         boyImage.SetActive(false);
 
         dialogueUI.SetActive(false);
+        squirrelTalk = true;
     }
 }
