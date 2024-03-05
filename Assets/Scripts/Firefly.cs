@@ -15,6 +15,6 @@ public class Firefly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(this.transform.position, formationTarget.position, 5 * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(this.transform.position, formationTarget.position, 5 * Time.deltaTime);
     }
 }
