@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject settingsUI;
     public GameObject mainCamera;
 
+    public GameObject deathFallUI;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -64,6 +66,11 @@ public class PlayerMovement : MonoBehaviour
             }
 
             characterController.Move(velocity * Time.deltaTime);
+
+            //if (velocity.y >= 10)
+            //{
+            //    deathFallUI.SetActive(true);
+            //}
         }
         
         //isGrounded = IsGrounded();
