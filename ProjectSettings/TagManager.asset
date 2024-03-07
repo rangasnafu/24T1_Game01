@@ -8,6 +8,10 @@ TagManager:
   - ShakeBranch
   - Slingshot
   - Enemy
+  - Stomp
+  - FallTrigger
+  - Fall
+  - RemoveFall
   layers:
   - Default
   - TransparentFX
