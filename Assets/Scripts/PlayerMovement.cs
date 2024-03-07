@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
 
     public GameObject dialogueUI;
+    public GameObject settingsUI;
     public GameObject mainCamera;
 
     private void Start()
@@ -29,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (!dialogueUI.activeSelf && mainCamera.activeSelf)
+        if (!dialogueUI.activeSelf && mainCamera.activeSelf && !settingsUI.activeSelf)
         {
             isGrounded = IsGrounded();
 

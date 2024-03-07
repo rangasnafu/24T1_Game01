@@ -18,9 +18,17 @@ public class ToggleSettings : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             //DialogueText();
-            settingsUI.SetActive(false);
+            settingsUI.SetActive(true);
             //Time.timeScale = 0f;
             //exclamationUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
         }
+    }
+
+    public void ExitSettings()
+    {
+        //Time.timeScale = 1f;
+        settingsUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
