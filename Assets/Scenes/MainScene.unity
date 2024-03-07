@@ -142,6 +142,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2009579398}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1825222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825223}
+  m_Layer: 0
+  m_Name: EnemyFollow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1825223
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 477945946}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5981997
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4038,7 +4069,12 @@ PrefabInstance:
         type: 3}
       propertyPath: targetObj
       value: 
-      objectReference: {fileID: 477945946}
+      objectReference: {fileID: 1825223}
+    - target: {fileID: 6901793877045537938, guid: b0fde18cf840e5a4c8ded617c905d9ad,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8159929537060929728, guid: b0fde18cf840e5a4c8ded617c905d9ad,
         type: 3}
       propertyPath: gnome
@@ -20916,6 +20952,7 @@ Transform:
   m_Children:
   - {fileID: 696872432}
   - {fileID: 1268999763}
+  - {fileID: 1825223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &477945947
@@ -57698,7 +57735,12 @@ PrefabInstance:
         type: 3}
       propertyPath: targetObj
       value: 
-      objectReference: {fileID: 477945946}
+      objectReference: {fileID: 1825223}
+    - target: {fileID: 6901793877045537938, guid: b0fde18cf840e5a4c8ded617c905d9ad,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8159929537060929728, guid: b0fde18cf840e5a4c8ded617c905d9ad,
         type: 3}
       propertyPath: gnome
@@ -71220,7 +71262,12 @@ PrefabInstance:
         type: 3}
       propertyPath: targetObj
       value: 
-      objectReference: {fileID: 477945946}
+      objectReference: {fileID: 1825223}
+    - target: {fileID: 6901793877045537938, guid: b0fde18cf840e5a4c8ded617c905d9ad,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8159929537060929728, guid: b0fde18cf840e5a4c8ded617c905d9ad,
         type: 3}
       propertyPath: gnome
