@@ -42,6 +42,9 @@ public class Dialogue : MonoBehaviour
     public GameObject squirrelImage;
     public GameObject boyImage;
 
+    public GameObject objective;
+    public GameObject objectiveUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -245,5 +248,8 @@ public class Dialogue : MonoBehaviour
 
         dialogueUI.SetActive(false);
         squirrelTalk = true;
+
+        objective.SetActive(true);
+        objectiveUI.SetActive(true);
     }
 }
