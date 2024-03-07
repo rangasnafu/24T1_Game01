@@ -20,7 +20,8 @@ public class EnemyFollow : MonoBehaviour
         if (wantToFollow)
         {
             transform.position = Vector3.MoveTowards(this.transform.position, targetObj.position, 5 * Time.deltaTime);
-            //transform.LookAt(targetObj);
+            transform.LookAt(targetObj);
+            transform.Rotate(transform.eulerAngles + new Vector3(-85, 270, 0));
         }
     }
 

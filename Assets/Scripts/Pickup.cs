@@ -43,7 +43,7 @@ public class Pickup : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown("f") && hasItem == true && dialogueUI.activeSelf)
+        if (Input.GetKeyDown("q") && hasItem == true && dialogueUI.activeSelf)
         {
             ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
             ObjectIWantToPickup.transform.parent = null;

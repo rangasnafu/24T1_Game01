@@ -13,32 +13,36 @@ public class Slingshot : MonoBehaviour
     public float cameraRotationY;
     public GameObject pivot;
 
-    public void LoadAcorn()
-    {
-        holdingAcorn = true;
-        slingshotCamera.SetActive(true);
-        player.DisablePlayer();
-    }
-    public void LaunchAcorn()
-    {
+    public GameObject acornPrefab;
+    public Transform acornSpawnPoint;
+    public float shootInterval;
+    private float shootTimer;
 
-    }
-    public void TargetSlingshot()
-    {
+    public float shootForce = 10f;
 
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerMovement>();
+        cameraRotationX = pivot.transform.localRotation.eulerAngles.x;
+        cameraRotationY = slingshotCamera.transform.localRotation.eulerAngles.y;
     }
+
     private void Update()
     {
         if (holdingAcorn == false)
         {
             return;
         }
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = -Input.GetAxis("Vertical");
-        cameraRotationX += horizontalInput * Time.deltaTime*movementSpeed;
-        cameraRotationY += verticalInput * Time.deltaTime * movementSpeed;
-        pivot.transform.localRotation = Quaternion.Euler(0, cameraRotationX, 0);
-        slingshotCamera.transform.localRotation = Quaternion.Euler(cameraRotationY, 0, 0);
+
+        if (slingshotCamera.activeSelf)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = -Input.GetAxis("Vertical");
+            cameraRotationX += horizontalInput * Time.deltaTime * movementSpeed;
+            cameraRotationY += verticalInput * Time.deltaTime * movementSpeed;
+            pivot.transform.localRotation = Quaternion.Euler(0, cameraRotationX, 0);
+            slingshotCamera.transform.localRotation = Quaternion.Euler(cameraRotationY, 0, 0);
+        }
 
         if (holdingAcorn && Input.GetKeyDown(KeyCode.Escape))
         {
@@ -46,12 +50,45 @@ public class Slingshot : MonoBehaviour
             player.EnablePlayer();
             slingshotCamera.SetActive(false);
         }
-        
+
+        UpdateShooting();
     }
-    private void Start()
+
+    public void LoadAcorn()
     {
-        player = FindObjectOfType<PlayerMovement>();
-        cameraRotationX = pivot.transform.localRotation.eulerAngles.x;
-        cameraRotationY = slingshotCamera.transform.localRotation.eulerAngles.y;
+        holdingAcorn = true;
+        slingshotCamera.SetActive(true);
+        player.DisablePlayer();
+    }
+
+    private void UpdateShooting()
+    {
+        shootTimer -= Time.deltaTime;
+
+        if (shootTimer <= 0 && Input.GetKey(KeyCode.Mouse0))
+        {
+            shootTimer = shootInterval;
+            ShootAcorn();
+
+        }
+    }
+
+    private void ShootAcorn()
+    {
+        //audioSource.PlayOneShot(shootSound);
+        //Instantiate(acornPrefab, acornSpawnPoint.position, acornSpawnPoint.rotation);
+        //instantiate means to spawn, quaternion means rotation
+
+        GameObject acorn = Instantiate(acornPrefab, acornSpawnPoint.position, acornSpawnPoint.rotation);
+
+        // Get the Rigidbody component of the instantiated acorn
+        Rigidbody acornRigidbody = acorn.GetComponent<Rigidbody>();
+
+        // Check if the Rigidbody component exists
+        if (acornRigidbody != null)
+        {
+            // Apply force to the acorn in the direction of the acornSpawnPoint's forward vector
+            acornRigidbody.AddForce(acornSpawnPoint.forward * shootForce, ForceMode.Impulse);
+        }
     }
 }
