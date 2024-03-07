@@ -7,6 +7,12 @@ public class ToggleSettings : MonoBehaviour
     public GameObject settingsUI;
     public GameObject tabUI;
     public GameObject dialogueUI;
+    public GameObject crosshairUI;
+    public GameObject promptUI;
+    public GameObject dropUI;
+    public GameObject talkUI;
+    public GameObject shakeUI;
+    public GameObject gameOverUI;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +40,21 @@ public class ToggleSettings : MonoBehaviour
         if (!dialogueUI.activeSelf)
         {
             tabUI.SetActive(true);
+        }
+        if (settingsUI.activeSelf)
+        {
+            tabUI.SetActive(false);
+            crosshairUI.SetActive(false);
+            //promptUI.SetActive(false);
+            //dropUI.SetActive(false);
+            //talkUI.SetActive(false);
+            //shakeUI.SetActive(false);
+            //gameOverUI.SetActive(false);
+        }
+        if (!settingsUI.activeSelf)
+        {
+            tabUI.SetActive(true);
+            crosshairUI.SetActive(true);
         }
     }
 
