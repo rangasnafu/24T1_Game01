@@ -22095,6 +22095,7 @@ MonoBehaviour:
   promptUI: {fileID: 198209446}
   dropUI: {fileID: 460510040}
   dialogueUI: {fileID: 1591236236}
+  settingsUI: {fileID: 2010717308}
 --- !u!143 &477945949
 CharacterController:
   m_ObjectHideFlags: 0
@@ -59621,7 +59622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &1448979543
 Camera:
   m_ObjectHideFlags: 0
@@ -80260,6 +80261,7 @@ MonoBehaviour:
   acornSpawnPoint: {fileID: 2080784817}
   shootInterval: 1
   shootForce: 20
+  optionsUI: {fileID: 2010717308}
 --- !u!1001 &1961894948
 PrefabInstance:
   m_ObjectHideFlags: 0

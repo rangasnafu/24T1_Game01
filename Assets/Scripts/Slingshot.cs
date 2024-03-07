@@ -20,6 +20,10 @@ public class Slingshot : MonoBehaviour
 
     public float shootForce = 10f;
 
+    public GameObject optionsUI;
+
+    private bool hasShot = false;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
@@ -34,7 +38,7 @@ public class Slingshot : MonoBehaviour
             return;
         }
 
-        if (slingshotCamera.activeSelf)
+        if (slingshotCamera.activeSelf && !optionsUI.activeSelf)
         {
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = -Input.GetAxis("Vertical");
@@ -44,11 +48,13 @@ public class Slingshot : MonoBehaviour
             slingshotCamera.transform.localRotation = Quaternion.Euler(cameraRotationY, 0, 0);
         }
 
-        if (holdingAcorn && Input.GetKeyDown(KeyCode.Escape))
+        if (holdingAcorn && Input.GetKeyDown(KeyCode.Escape) && !optionsUI.activeSelf)
         {
             holdingAcorn = false;
             player.EnablePlayer();
             slingshotCamera.SetActive(false);
+
+            hasShot = false;
         }
 
         UpdateShooting();
@@ -65,11 +71,10 @@ public class Slingshot : MonoBehaviour
     {
         shootTimer -= Time.deltaTime;
 
-        if (shootTimer <= 0 && Input.GetKey(KeyCode.Mouse0))
+        if (shootTimer <= 0 && Input.GetKey(KeyCode.Mouse0) && !hasShot && !optionsUI.activeSelf)
         {
             shootTimer = shootInterval;
             ShootAcorn();
-
         }
     }
 
@@ -90,5 +95,7 @@ public class Slingshot : MonoBehaviour
             // Apply force to the acorn in the direction of the acornSpawnPoint's forward vector
             acornRigidbody.AddForce(acornSpawnPoint.forward * shootForce, ForceMode.Impulse);
         }
+
+        hasShot = true;
     }
 }

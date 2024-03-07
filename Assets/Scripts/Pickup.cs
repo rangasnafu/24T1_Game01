@@ -18,6 +18,7 @@ public class Pickup : MonoBehaviour
     public GameObject dropUI;
 
     public GameObject dialogueUI;
+    public GameObject settingsUI;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canPickup == true && !dialogueUI.activeSelf)
+        if (canPickup == true && !dialogueUI.activeSelf && !settingsUI.activeSelf)
         {
             if (Input.GetKeyDown("e"))
             {
@@ -43,7 +44,7 @@ public class Pickup : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown("q") && hasItem == true && dialogueUI.activeSelf)
+        if (Input.GetKeyDown("q") && hasItem == true && dialogueUI.activeSelf && !settingsUI.activeSelf)
         {
             ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
             ObjectIWantToPickup.transform.parent = null;
@@ -63,7 +64,7 @@ public class Pickup : MonoBehaviour
         //    dropUI.SetActive(false);
         //}
 
-        if (Input.GetMouseButtonDown(0) && hasItem == true)
+        if (Input.GetMouseButtonDown(0) && hasItem == true && !settingsUI.activeSelf)
         {
             ObjectIWantToPickup.GetComponent<Rigidbody>().isKinematic = false;
             ObjectIWantToPickup.transform.parent = null;
@@ -73,7 +74,7 @@ public class Pickup : MonoBehaviour
             dropUI.SetActive(false);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !settingsUI.activeSelf)
         {
             dropUI.SetActive(false);
         }
@@ -81,7 +82,7 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "Acorn" && !dialogueUI.activeSelf)
+        if (collision.gameObject.tag == "Acorn" && !dialogueUI.activeSelf && !settingsUI.activeSelf)
         {
             if (hasItem == false)
             {
@@ -91,7 +92,7 @@ public class Pickup : MonoBehaviour
 
             promptUI.SetActive(true);
         }
-        if (collision.gameObject.tag == "Slingshot" && !dialogueUI.activeSelf)
+        if (collision.gameObject.tag == "Slingshot" && !dialogueUI.activeSelf && !settingsUI.activeSelf)
         {
             if (hasItem == true)
             {
