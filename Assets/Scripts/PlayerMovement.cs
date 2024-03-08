@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             //fallCollider.SetActive(false);
             //deathFallUI.SetActive(false);
 
-            Invoke(nameof(DeactivateFallUI), 0.1f);
+            Invoke(nameof(DeactivateFallUI), 0.01f);
 
             //deathFallUI.SetActive(false);
             //    //Time.timeScale = 1f;
@@ -170,6 +170,13 @@ public class PlayerMovement : MonoBehaviour
     {
         //transform.position = restartParkour.transform.position;
         deathFallUI.SetActive(false);
+        //fallCollider.SetActive(false);
         //Time.timeScale = 1f;
+        Invoke(nameof(DeactivateFallCollider), 1f);
+    }
+
+    private void DeactivateFallCollider()
+    {
+        fallCollider.SetActive(false);
     }
 }
