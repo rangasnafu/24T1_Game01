@@ -26,4 +26,12 @@ public class PressurePlate : MonoBehaviour
             gate.transform.Rotate(transform.eulerAngles + new Vector3(0, -90, 0));
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Acorn"))
+        {
+            gate.transform.Rotate(transform.eulerAngles + new Vector3(0, 90, 0));
+        }
+    }
 }
