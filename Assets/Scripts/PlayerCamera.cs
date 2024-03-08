@@ -21,6 +21,7 @@ public class PlayerCamera : MonoBehaviour
     public GameObject dialogueUI;
     public GameObject settingsUI;
     public GameObject mainCamera;
+    public GameObject deathFallUI;
 
     private void Start()
     {
@@ -46,7 +47,7 @@ public class PlayerCamera : MonoBehaviour
 
     private void Update()
     {
-        if (!dialogueUI.activeSelf && mainCamera.activeSelf && !settingsUI.activeSelf)
+        if (!dialogueUI.activeSelf && mainCamera.activeSelf && !settingsUI.activeSelf && !deathFallUI.activeSelf)
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

@@ -31763,6 +31763,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 1591236236}
   settingsUI: {fileID: 2010717308}
   mainCamera: {fileID: 696872427}
+  deathFallUI: {fileID: 221416789}
 --- !u!114 &696872429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59779,7 +59780,6 @@ GameObject:
   - component: {fileID: 1445155931}
   - component: {fileID: 1445155930}
   - component: {fileID: 1445155929}
-  - component: {fileID: 1445155928}
   m_Layer: 0
   m_Name: RestartParkour
   m_TagString: Untagged
@@ -59787,27 +59787,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1445155928
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1445155927}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1445155929
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64876,7 +64855,7 @@ Transform:
   m_GameObject: {fileID: 1554337495}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.93, y: 16.42, z: -286.72}
+  m_LocalPosition: {x: -4.53, y: 14.52, z: -270.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

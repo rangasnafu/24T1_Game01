@@ -76,19 +76,25 @@ public class PlayerMovement : MonoBehaviour
             //    deathFallUI.SetActive(true);
             //}
 
-            //if (deathFallUI.activeSelf && Input.GetKeyDown(KeyCode.R))
-            //{
-            //    transform.position = restartParkour.transform.position;
-            //    characterController.transform.position = restartParkour.transform.position;
-            //    fallCollider.SetActive(false);
 
-            //    //Invoke(nameof(DeactivateFallUI), 1f);
-
-            //    deathFallUI.SetActive(false);
-            //    //Time.timeScale = 1f;
-            //}
         }
-        
+        if (deathFallUI.activeSelf && Input.GetKeyDown(KeyCode.R))
+        {
+            //fallCollider.SetActive(false);
+            //transform.position = restartParkour.transform.position;
+            Debug.Log("woaowoda");
+            transform.position = restartParkour.transform.position;
+            //deathFallUI.SetActive(false);
+            //characterController.transform.position = restartParkour.transform.position;
+            //fallCollider.SetActive(false);
+            //deathFallUI.SetActive(false);
+
+            Invoke(nameof(DeactivateFallUI), 0.1f);
+
+            //deathFallUI.SetActive(false);
+            //    //Time.timeScale = 1f;
+        }
+
         //isGrounded = IsGrounded();
 
         //float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
@@ -141,28 +147,29 @@ public class PlayerMovement : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    //private void OnTriggerEnter(Collider collision)
-    //{
-    //    if (collision.CompareTag("FallTrigger"))
-    //    {
-    //        fallCollider.SetActive(true);
-    //    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.CompareTag("FallTrigger"))
+        {
+            fallCollider.SetActive(true);
+        }
 
-    //    if (collision.CompareTag("RemoveFall"))
-    //    {
-    //        fallCollider.SetActive(false);
-    //    }
+        if (collision.CompareTag("RemoveFall"))
+        {
+            fallCollider.SetActive(false);
+        }
 
-    //    if (collision.CompareTag("Fall"))
-    //    {
-    //        //Time.timeScale = 0f;
-    //        deathFallUI.SetActive(true);
-    //    }
-    //}
+        if (collision.CompareTag("Fall"))
+        {
+            //Time.timeScale = 0f;
+            deathFallUI.SetActive(true);
+        }
+    }
 
-    //private void DeactivateFallUI()
-    //{
-    //    deathFallUI.SetActive(false);
-    //    Time.timeScale = 1f;
-    //}
+    private void DeactivateFallUI()
+    {
+        //transform.position = restartParkour.transform.position;
+        deathFallUI.SetActive(false);
+        //Time.timeScale = 1f;
+    }
 }
