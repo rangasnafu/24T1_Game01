@@ -39905,6 +39905,26 @@ PrefabInstance:
       propertyPath: gate
       value: 
       objectReference: {fileID: 425138926}
+    - target: {fileID: 2070426321673525507, guid: 843002c03f5079744aab80781e261961,
+        type: 3}
+      propertyPath: rotationAmount
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070426321673525507, guid: 843002c03f5079744aab80781e261961,
+        type: 3}
+      propertyPath: rotationAmount.w
+      value: 0.70710677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070426321673525507, guid: 843002c03f5079744aab80781e261961,
+        type: 3}
+      propertyPath: rotationAmount.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070426321673525507, guid: 843002c03f5079744aab80781e261961,
+        type: 3}
+      propertyPath: rotationAmount.y
+      value: -0.70710677
+      objectReference: {fileID: 0}
     - target: {fileID: 2461628818804216524, guid: 843002c03f5079744aab80781e261961,
         type: 3}
       propertyPath: m_Name
