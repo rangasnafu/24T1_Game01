@@ -24,6 +24,8 @@ public class Slingshot : MonoBehaviour
 
     private bool hasShot = false;
 
+    public GameObject crosshairUI;
+
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>();
@@ -48,13 +50,15 @@ public class Slingshot : MonoBehaviour
             slingshotCamera.transform.localRotation = Quaternion.Euler(cameraRotationY, 0, 0);
         }
 
-        if (holdingAcorn && Input.GetKeyDown(KeyCode.Escape) && !optionsUI.activeSelf)
+        if (holdingAcorn && Input.GetKeyDown(KeyCode.LeftShift) && !optionsUI.activeSelf)
         {
             holdingAcorn = false;
             player.EnablePlayer();
             slingshotCamera.SetActive(false);
 
             hasShot = false;
+
+            crosshairUI.SetActive(false);
         }
 
         UpdateShooting();
@@ -65,6 +69,8 @@ public class Slingshot : MonoBehaviour
         holdingAcorn = true;
         slingshotCamera.SetActive(true);
         player.DisablePlayer();
+
+        crosshairUI.SetActive(true);
     }
 
     private void UpdateShooting()

@@ -8,6 +8,9 @@ public class ToggleSettings : MonoBehaviour
     public GameObject tabUI;
     public GameObject dialogueUI;
     public GameObject crosshairUI;
+
+    //public GameObject transparentTabUI;
+
     public GameObject promptUI;
     public GameObject dropUI;
     public GameObject talkUI;
@@ -32,6 +35,17 @@ public class ToggleSettings : MonoBehaviour
             //exclamationUI.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
         }
+
+        //if (crosshairUI.activeSelf)
+        //{
+        //    tabUI.SetActive(false);
+        //    transparentTabUI.SetActive(true);
+        //}
+        //if (!crosshairUI.activeSelf)
+        //{
+        //    tabUI.SetActive(true);
+        //    transparentTabUI.SetActive(false);
+        //}
 
         if (dialogueUI.activeSelf)
         {

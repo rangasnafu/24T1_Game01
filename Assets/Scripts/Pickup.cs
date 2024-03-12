@@ -20,6 +20,8 @@ public class Pickup : MonoBehaviour
     public GameObject dialogueUI;
     public GameObject settingsUI;
 
+    public GameObject crosshairUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +101,7 @@ public class Pickup : MonoBehaviour
                 collision.gameObject.GetComponent<Slingshot>().LoadAcorn();
                 hasItem = false;
                 Destroy(ObjectIWantToPickup);
+                //crosshairUI.SetActive(true);
             }
         }
     }
