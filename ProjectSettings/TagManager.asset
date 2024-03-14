@@ -12,6 +12,7 @@ TagManager:
   - FallTrigger
   - Fall
   - RemoveFall
+  - PressurePlate
   layers:
   - Default
   - TransparentFX
