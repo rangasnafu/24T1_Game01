@@ -12,6 +12,7 @@ public class PressurePlate : MonoBehaviour
 
     private float _rotationSpeed = 5f;
 
+    private Quaternion _initialRotation;
     private Quaternion _targetRot;
 
     public bool gateIsOpen = false;
@@ -20,6 +21,7 @@ public class PressurePlate : MonoBehaviour
     void Start()
     {
         _targetRot = transform.rotation;
+        _initialRotation = gate.transform.rotation;
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class PressurePlate : MonoBehaviour
         }
         else
         {
-            _targetRot = Quaternion.identity;
+            _targetRot = _initialRotation;
             //If you want to rotate each time the mouse is clicked
             //_targetRot *= Quaternion.AngleAxis(90, transform.forward);
         }
