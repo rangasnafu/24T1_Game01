@@ -59,6 +59,13 @@ public class Target : MonoBehaviour
 
             gateIsOpening = true;
             gateIsOpen = true;
+
+            Invoke(nameof(DeleteTarget), 0.2f);
         }
+    }
+
+    private void DeleteTarget()
+    {
+        Destroy(this.gameObject);
     }
 }
