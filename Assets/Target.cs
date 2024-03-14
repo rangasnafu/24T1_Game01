@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressurePlate : MonoBehaviour
+public class Target : MonoBehaviour
 {
     public GameObject gate;
     public Quaternion rotationAmount;
@@ -59,30 +59,6 @@ public class PressurePlate : MonoBehaviour
 
             gateIsOpening = true;
             gateIsOpen = true;
-        }
-
-        if (collision.CompareTag("Player"))
-        {
-            gateIsOpening = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Acorn"))
-        {
-            //gate.transform.Rotate(transform.eulerAngles + rotationAmount);
-            gateIsOpening = false;
-
-            gateIsOpen = false;
-        }
-
-        if (other.CompareTag("Player"))
-        {
-            if (!gateIsOpen)
-            {
-                gateIsOpening = false;
-            }
         }
     }
 }
