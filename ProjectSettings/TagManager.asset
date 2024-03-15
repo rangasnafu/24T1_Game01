@@ -13,6 +13,7 @@ TagManager:
   - Fall
   - RemoveFall
   - PressurePlate
+  - ShotAcorn
   layers:
   - Default
   - TransparentFX
