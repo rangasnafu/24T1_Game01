@@ -82,50 +82,24 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 1136842ce2a26d142bb7f09e4e7c57db,
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1136842ce2a26d142bb7f09e4e7c57db,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5210809017839171135}
-    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 1136842ce2a26d142bb7f09e4e7c57db,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1548506987069057625}
+      addedObject: {fileID: 618924101363419458}
   m_SourcePrefab: {fileID: 100100000, guid: 1136842ce2a26d142bb7f09e4e7c57db, type: 3}
---- !u!1 &7287633465275993180 stripped
+--- !u!1 &1778688645329663109 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 1136842ce2a26d142bb7f09e4e7c57db,
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1136842ce2a26d142bb7f09e4e7c57db,
     type: 3}
   m_PrefabInstance: {fileID: 1472186935457352148}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &5210809017839171135
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7287633465275993180}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 1136842ce2a26d142bb7f09e4e7c57db, type: 3}
---- !u!65 &1548506987069057625
+--- !u!65 &618924101363419458
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7287633465275993180}
+  m_GameObject: {fileID: 1778688645329663109}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -138,5 +112,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 150, y: 100, z: 50}
+  m_Size: {x: 145, y: 100, z: 50}
   m_Center: {x: 0, y: 50, z: 0}
