@@ -25,6 +25,11 @@ public class Suggestion : MonoBehaviour
             Invoke(nameof(PromptSuggestion), 1f);
             //suggestionUI.SetActive(true);
         }
+
+        //if (collision.CompareTag("Acorn"))
+        //{
+        //    Destroy(this.gameObject);
+        //}
     }
 
     private void OnTriggerExit(Collider other)
